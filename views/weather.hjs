@@ -1,0 +1,95 @@
+
+
+    <div id="weather">
+
+		<div class="moitie gauche">
+			<canvas id="weather-icon" width="128" height="128"></canvas>
+		</div>
+		<div class="moitie droite">
+		    <div id="temperatures">
+				<span class="mainTemp">{{ J1_Min }}°C</span><span class="secTemp">{{J1_MinApp}}</span>
+				<br />
+				<span class="mainTemp">{{ J1_Max }}°C</span><span class="secTemp">{{J1_MaxApp}}</span>
+			</div>
+		</div>
+
+		<div id="weatherSummary">{{ resume }}</div>
+	
+
+	    <div id="demain">
+
+	    	<span class="leverSoleil">
+	    		<i class="wi wi-sunrise"></i>{{ leverSoleil }}
+    		</span>
+	    	<span class="coucherSoleil">
+	    		<i class="wi wi-sunset"></i>{{ coucherSoleil }}
+	    	</span>
+	    	<span class="vitesseVent">
+	    		<i class="wi wi-strong-wind"></i>{{ vitesseVent }}km/h&nbsp;<i class="wi wi-wind wi-towards-{{ directionVent }}"></i>
+    		</span>
+	    	<span class="probPrecipitations">
+	    		<i class="wi wi-umbrella"></i>{{ probPrecipitations }}%
+    		</span>
+		</div>
+
+	    <!--<div id="actuellement">
+	    	<h2>Actuellement : </h2>
+	    	<span class="temp">Temp : {{ nowTemperature }}°C</span>
+	    	<span class="tempress">({{ nowTemperatureRessentie }})</span>
+	    	<br />
+	    	<span class="vitesseVent">Vent : {{ nowVitesseVent }}km/h {{ nowDirectionVent }}</span>
+	    	<br />
+	    	<span class="humidite">Précipitations : {{ nowProbPrecipitations }}%</span>
+		</div>-->
+
+
+
+		<div class="joursSuivants">
+			<div class="jourSuivant jourPlusDeux">
+				<span class="jourSemaine">{{ J2_JourSemaine }}</span>
+				<span><canvas id="weather-icon-J2" width="32" height="32"></canvas></span>
+				<span></i>{{ J2_Min }}°C <small>{{J2_MinApp}}</small> - {{ J2_Max }}°C <small>{{J2_MaxApp}}</small></span>
+				<span>{{ J2_probPrecipitations }}%</span>		
+			</div>
+
+			<div class="jourSuivant jourPlusTrois">
+				<span class="jourSemaine">{{ J3_JourSemaine }}</span>
+				<span><canvas id="weather-icon-J3" width="32" height="32"></canvas></span>
+				<span></i>{{ J3_Min }}°C <small>{{J3_MinApp}}</small> - {{ J3_Max }}°C <small>{{J3_MaxApp}}</small></span>
+				<span>{{ J3_probPrecipitations }}%</span>		
+			</div>
+
+			<div class="jourSuivant jourPlusQuatre">
+				<span class="jourSemaine">{{ J4_JourSemaine }}</span>
+				<span><canvas id="weather-icon-J4" width="32" height="32"></canvas></span>
+				<span></i>{{ J4_Min }}°C <small>{{J4_MinApp}}</small> - {{ J4_Max }}°C <small>{{J4_MaxApp}}</small></span>
+				<span>{{ J4_probPrecipitations }}%</span>		
+			</div>
+
+			<div class="jourSuivant jourPlusCinq">
+				<span class="jourSemaine">{{ J5_JourSemaine }}</span>
+				<span><canvas id="weather-icon-J5" width="32" height="32"></canvas></span>
+				<span></i>{{ J5_Min }}°C <small>{{J5_MinApp}}</small> - {{ J5_Max }}°C <small>{{J5_MaxApp}}</small></span>
+				<span>{{ J5_probPrecipitations }}%</span>		
+			</div>
+		</div>
+
+    </div>
+
+	<script>
+	  	var skycons = new Skycons({"color": "white"});
+	  	skycons.add("weather-icon", Skycons.{{ iconeMeteo }});
+	  	skycons.add("weather-icon-J2", Skycons.{{ J2_Icone }});		  
+	  	skycons.add("weather-icon-J3", Skycons.{{ J3_Icone }});		  
+	  	skycons.add("weather-icon-J4", Skycons.{{ J4_Icone }});		  
+	  	skycons.add("weather-icon-J5", Skycons.{{ J5_Icone }});		  
+    	skycons.play();
+
+
+		function autoRefresh1(){
+			   window.location.reload();
+		}
+		setInterval('autoRefresh1()', 1800000); 
+	</script>
+
+

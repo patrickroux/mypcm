@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel='stylesheet' href='/stylesheets/weather-icons-master/css/weather-icons.css' />
+		<link rel='stylesheet' href='/stylesheets/weather-icons-master/css/weather-icons-wind.css' />
+ 
+	    <script type="text/javascript" src="javascripts/date_heure.js"></script>
+	    <script type="text/javascript" src="javascripts/jquery.js"></script>
+	    <script type="text/javascript" src="javascripts/skycons.js"></script>
+
+
+
+	</head>
+	<body>
+    	<p class="info">TIME OF LAST RELOAD : {{ time }}</p>
+
+
+		<div class="droite">
+	 		<div id="date_heure"></div>
+			{{#birthdayGuys}}
+	 		<div id="birthdays">
+	 			<h2>Demain, c'est l'anniversaire de</h2>
+ 				<h3>{{birthdayGuys}}</h3>
+	 		</div>
+			{{/birthdayGuys}}
+		</div>
+		<div class="gauche">
+ 		{{> weather }}
+
+ 		</div>
+
+ 		<div id="message">{{ randomMessage }}</div>
+
+
+        <script type="text/javascript">window.onload = date_heure('date_heure');</script>
+
+
+
+	</body>
+</html>
